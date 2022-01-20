@@ -58,8 +58,7 @@
             getData();
         });
 
-        function getData()
-        {
+        function getData() {
             var $tbl = $('#tblInfo');
             $.ajax({
                 url: $("#Get").val(),
@@ -70,14 +69,14 @@
 
                     $.each(data.listCus, function (i, model) {
                         $tbl.append
-                        (
-                            '<tr>' +
-                            '<td>' + model.StockId + '</td>' +
-                            '<td>' + model.StockCode + '</td>' +
-                            '<td>' + model.LastPrice + '</td>' +
-                            '<td>' + model.Name + '</td>' +
-                            '<tr>'
-                        );
+                            (
+                                '<tr>' +
+                                '<td>' + model.Id + '</td>' +
+                                '<td>' + model.CusId + '</td>' +
+                                '<td>' + model.LastPrice + '</td>' +
+                                '<td>' + model.CusName + '</td>' +
+                                '<tr>'
+                            );
                     });
                 }
             });

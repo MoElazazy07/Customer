@@ -1,10 +1,9 @@
-﻿@{
-    ViewBag.Title = "Customer";
-}
+﻿@{ ViewBag.Title = "Customer"; }
 
 <h2>Customer Details</h2>
 
 @Html.Hidden("Get", Url.Action("Get", "Customer"))
+
 
 <table class="table">
     <thead>
@@ -13,10 +12,9 @@
             <th>StockCode</th>
             <th>LastPrice</th>
             <th>Name</th>
-</tr>
+        </tr>
     </thead>
 
     <tbody id="tblInfo">
-        
     </tbody>
 </table>

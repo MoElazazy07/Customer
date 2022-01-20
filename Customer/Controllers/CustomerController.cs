@@ -24,7 +24,7 @@ namespace Customer.Controllers
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CustomerConnection"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [StockId],[StockCode],[LastPrice],[Name]FROM [Customer].[dbo].[TblStock]", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT [StockId],[StockCode],[LastPrice],[Name] FROM [dbo].[TblStock]", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -41,11 +41,10 @@ namespace Customer.Controllers
                     var listCus = reader.Cast<IDataRecord>()
                             .Select(x => new
                             {
-                                StockId = (int)x["StockId"],
-                                StockCode = (string)x["StockCode"],
-                                LastPrice = (int)x["LastPrice"],
-                                Name = (string)x["Name"],
-
+                                Id = (int)x["StockId"],
+                                CusId = (string)x["StockCode"],
+                                LastPrice= (int)x["LastPrice"],
+                                CusName = (string)x["Name"],
                             }).ToList();
 
                     return Json(new { listCus = listCus }, JsonRequestBehavior.AllowGet);
